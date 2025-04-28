@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tstrip playground</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      html {
+        height: 100%;
+      }
+      textarea {
+        margin: 0;
+        resize: none;
+        width: auto;
+        height: auto;
+        flex-grow: 1;
+      }
+      @media (min-width: 100vh) {
+        body {
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="in"></textarea>
+    <textarea id="out" readonly></textarea>
+    <script type="module">
+      import { stripTypes } from "./strip.bundle.js";
+      const input = document.getElementById("in");
+      const output = document.getElementById("out");
+      function update() {
+        try {
+          output.value = stripTypes(input.value);
+        } catch (e) {
+          output.value = e + "";
+        }
+      }
+      input.addEventListener("input", update);
+      update();
+    </script>
+  </body>
+</html>
