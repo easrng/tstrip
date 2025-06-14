@@ -1,20 +1,40 @@
 {
-  "dependencies": {
-    "@babel/code-frame": "8.0.0-alpha.17",
-    "@types/estree": "^1.0.7",
-    "@types/node": "^22.14.0",
-    "@typescript-eslint/types": "^8.29.1",
-    "acorn": "^8.14.1",
-    "esbuild": "^0.25.2",
-    "magic-string": "^0.30.17",
-    "periscopic": "^4.0.2",
-    "typescript": "^5.8.3",
-    "zimmerframe": "^1.1.2"
-  },
+  "name": "tstrip",
+  "version": "0.0.1",
+  "description": "a small typescript transformer",
+  "author": "easrng",
+  "main": "strip.js",
+  "type": "module",
   "scripts": {
     "test": "node test.js",
     "build": "node --run test && esbuild --bundle strip.js --format=esm --outfile=strip.bundle.js"
   },
-  "type": "module",
+  "dependencies": {
+    "acorn": "^8.14.1",
+    "magic-string": "^0.30.17",
+    "periscopic": "^4.0.2",
+    "zimmerframe": "^1.1.2"
+  },
+  "devDependencies": {
+    "@babel/code-frame": "8.0.0-alpha.17",
+    "@types/estree": "^1.0.7",
+    "@types/node": "^22.14.0",
+    "@typescript-eslint/types": "^8.29.1",
+    "esbuild": "^0.25.2",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "strip.js",
+    "acornts.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easrng/tstrip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/easrng/tstrip/issues"
+  },
+  "homepage": "https://github.com/easrng/tstrip#readme",
   "packageManager": "pnpm@9.15.5+sha512.845196026aab1cc3f098a0474b64dfbab2afe7a1b4e91dd86895d8e4aa32a7a6d03049e2d0ad770bbe4de023a7122fb68c1a1d6e0d033c7076085f9d5d4800d4"
 }

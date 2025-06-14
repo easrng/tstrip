@@ -31,7 +31,7 @@ export function stripTypes(input: string) {
     const ms = new MagicString(input);
     const ws = (start: number, end: number, block: boolean | null) => {
         if (start === end) return;
-        let newText = input.slice(start, end).replace(/\S/ug, " ");
+        const newText = input.slice(start, end).replace(/\S/ug, " ");
         if (block === null) {
             const asi =
                 /(?:\/\*(?:[^*]+|\*(?!\/))*(?:\*\/)?|\/\/.*(?:\r?\n|[\r\u2028\u2029])|[\t\v\f\ufeff\p{Zs}\r\n\u2028\u2029])*[[(]/yu;
@@ -58,17 +58,11 @@ export function stripTypes(input: string) {
     function prune(n: any) {
         for (const k in n) delete n[k];
     }
-    function eraseInline(
-        n: TSESTree.BaseNode,
-        ctx: Context<TSESTree.Node, null>,
-    ) {
+    function eraseInline(n: TSESTree.BaseNode) {
         ws(n.start, n.end, false);
         prune(n);
     }
-    function eraseBlock(
-        n: TSESTree.BaseNode,
-        ctx: Context<TSESTree.Node, null>,
-    ) {
+    function eraseBlock(n: TSESTree.BaseNode) {
         ws(n.start, n.end, true);
         prune(n);
     }
@@ -339,10 +333,8 @@ export function stripTypes(input: string) {
             }
             c.next();
             let next: TSESTree.ExportSpecifier | undefined,
-                prev: TSESTree.ExportSpecifier | undefined,
                 cur: TSESTree.ExportSpecifier | undefined;
             for (const s of [undefined, ...n.specifiers, undefined]) {
-                prev = cur;
                 cur = next;
                 next = s;
                 if ((cur as any)?.exportKind === "type") {
@@ -392,13 +384,6 @@ export function stripTypes(input: string) {
                 ws(n.start, n.end, true);
                 prune(n);
             } else {
-                enum uwu {
-                    uwu,
-                    owo,
-                    uwu2 = 1000,
-                    owo2,
-                    x = uwu as any,
-                }
                 const id = n.id;
                 const names = new Set(
                     n.members.map((e) => (e.id as TSESTree.Identifier).name),
@@ -572,10 +557,8 @@ export function stripTypes(input: string) {
             continue;
         }
         let next: TSESTree.ImportClause | undefined,
-            prev: TSESTree.ImportClause | undefined,
             cur: TSESTree.ImportClause | undefined;
         for (const s of [undefined, ...n.specifiers, undefined]) {
-            prev = cur;
             cur = next;
             next = s;
             if (

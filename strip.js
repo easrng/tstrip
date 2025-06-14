@@ -31,7 +31,7 @@ export function stripTypes(input        ) {
     const ms = new MagicString(input);
     const ws = (start        , end        , block                ) => {
         if (start === end) return;
-        let newText = input.slice(start, end).replace(/\S/ug, " ");
+        const newText = input.slice(start, end).replace(/\S/ug, " ");
         if (block === null) {
             const asi =
                 /(?:\/\*(?:[^*]+|\*(?!\/))*(?:\*\/)?|\/\/.*(?:\r?\n|[\r\u2028\u2029])|[\t\v\f\ufeff\p{Zs}\r\n\u2028\u2029])*[[(]/yu;
@@ -58,17 +58,11 @@ export function stripTypes(input        ) {
     function prune(n     ) {
         for (const k in n) delete n[k];
     }
-    function eraseInline(
-        n                   ,
-        ctx                              ,
-    ) {
+    function eraseInline(n                   ) {
         ws(n.start, n.end, false);
         prune(n);
     }
-    function eraseBlock(
-        n                   ,
-        ctx                              ,
-    ) {
+    function eraseBlock(n                   ) {
         ws(n.start, n.end, true);
         prune(n);
     }
@@ -339,10 +333,8 @@ export function stripTypes(input        ) {
             }
             c.next();
             let next                                      ,
-                prev                                      ,
                 cur                                      ;
             for (const s of [undefined, ...n.specifiers, undefined]) {
-                prev = cur;
                 cur = next;
                 next = s;
                 if ((cur       )?.exportKind === "type") {
@@ -392,13 +384,6 @@ export function stripTypes(input        ) {
                 ws(n.start, n.end, true);
                 prune(n);
             } else {
-                var uwu;(function (uwu_) {
-                    const uwu = 0;uwu_[uwu_["uwu"] = uwu] = "uwu";
-                    const owo = uwu + 1;uwu_[uwu_["owo"] = owo] = "owo";
-                    const uwu2 = 1000;uwu_[uwu_["uwu2"] = uwu2] = "uwu2";
-                    const owo2 = uwu2 + 1;uwu_[uwu_["owo2"] = owo2] = "owo2";
-                    const x = uwu       ;uwu_[uwu_["x"] = x] = "x";
-                })(uwu || (uwu = {}));
                 const id = n.id;
                 const names = new Set(
                     n.members.map((e) => (e.id                       ).name),
@@ -572,10 +557,8 @@ export function stripTypes(input        ) {
             continue;
         }
         let next                                   ,
-            prev                                   ,
             cur                                   ;
         for (const s of [undefined, ...n.specifiers, undefined]) {
-            prev = cur;
             cur = next;
             next = s;
             if (
