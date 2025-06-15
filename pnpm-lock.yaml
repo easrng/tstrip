@@ -8,6 +8,19 @@ importers:
 
   .:
     dependencies:
+      acorn:
+        specifier: ^8.14.1
+        version: 8.14.1
+      magic-string-lite:
+        specifier: ^0.0.1
+        version: 0.0.1
+      periscopic:
+        specifier: ^4.0.2
+        version: 4.0.2
+      zimmerframe:
+        specifier: ^1.1.2
+        version: 1.1.2
+    devDependencies:
       '@babel/code-frame':
         specifier: 8.0.0-alpha.17
         version: 8.0.0-alpha.17
@@ -20,24 +33,12 @@ importers:
       '@typescript-eslint/types':
         specifier: ^8.29.1
         version: 8.29.1
-      acorn:
-        specifier: ^8.14.1
-        version: 8.14.1
       esbuild:
         specifier: ^0.25.2
         version: 0.25.2
-      magic-string:
-        specifier: ^0.30.17
-        version: 0.30.17
-      periscopic:
-        specifier: ^4.0.2
-        version: 4.0.2
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
-      zimmerframe:
-        specifier: ^1.1.2
-        version: 1.1.2
 
 packages:
 
@@ -199,9 +200,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@jridgewell/sourcemap-codec@1.5.0':
-    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
-
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
 
@@ -228,8 +226,8 @@ packages:
   js-tokens@8.0.3:
     resolution: {integrity: sha512-UfJMcSJc+SEXEl9lH/VLHSZbThQyLpw1vLO1Lb+j4RWDvG3N2f7yj3PVQA3cmkTBNldJ9eFnM+xEXxHIXrYiJw==}
 
-  magic-string@0.30.17:
-    resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
+  magic-string-lite@0.0.1:
+    resolution: {integrity: sha512-KmtUhAhu+B+tAwDF7WuyWdDe9VjMdIyJzZSHYcZr5b3IQWP+CF/ou/SDSDZYd30aOJLoSWgbY4hEBODwE7sg0Q==}
 
   periscopic@4.0.2:
     resolution: {integrity: sha512-sqpQDUy8vgB7ycLkendSKS6HnVz1Rneoc3Rc+ZBUCe2pbqlVuCC5vF52l0NJ1aiMg/r1qfYF9/myz8CZeI2rjA==}
@@ -333,8 +331,6 @@ snapshots:
   '@esbuild/win32-x64@0.25.2':
     optional: true
 
-  '@jridgewell/sourcemap-codec@1.5.0': {}
-
   '@types/estree@1.0.7': {}
 
   '@types/node@22.14.0':
@@ -379,9 +375,7 @@ snapshots:
 
   js-tokens@8.0.3: {}
 
-  magic-string@0.30.17:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
+  magic-string-lite@0.0.1: {}
 
   periscopic@4.0.2:
     dependencies:

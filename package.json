@@ -1,6 +1,6 @@
 {
   "name": "tstrip",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a small typescript transformer",
   "author": "easrng",
   "main": "strip.js",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "acorn": "^8.14.1",
-    "magic-string": "^0.30.17",
+    "magic-string-lite": "^0.0.1",
     "periscopic": "^4.0.2",
     "zimmerframe": "^1.1.2"
   },

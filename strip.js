@@ -3,7 +3,7 @@ import { Parser } from "acorn";
 import { tsPlugin } from "./acornts.js";
 import {          walk } from "zimmerframe";
                                                     
-import MagicString from "magic-string";
+import MagicString from "magic-string-lite";
 import { analyze, extract_identifiers, extract_names } from "periscopic";
                                       
 
